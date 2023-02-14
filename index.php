@@ -23,19 +23,20 @@
 // TODO Votre code ici bas.
 
 try {
-    $maConnexion = ........
+    $db="intro_sql";
+    $maConnexion = new PDO("mysql:host=localhost;dbname=$db", "root", "");
+    $maConnexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $request = "
-        Ma super requête SQL pour créer une base de données.
-    ";
+    $request = "CREATE DATABASE intro-sql";
 
-    $maConnexion->une super méthode pour exécuter ma requete
+    $maConnexion->exec($request);
 
-    echo "La base de données intro_sql a bien été créée.";
+    echo "bdd créée";
 }
-catch (PDOException $exception) {
-    echo $exception->getMessage();
+catch (PDOException $e){
+    echo $e->getMessage();
 }
+
 
 
 
